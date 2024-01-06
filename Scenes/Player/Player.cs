@@ -35,7 +35,9 @@ public class Player : KinematicBody2D
         burstTimer += delta;
         if (shootTimer >= ShootInterval && burstRounds == 0)
             burstRounds = BurstMax;
-        else if (shootTimer >= ShootInterval && burstRounds > 0)
+        else if (shootTimer >= ShootInterval
+                && burstRounds > 0
+                && burstTimer >= BurstInterval)
         {
             // LookAt the nearest enemy
             float nearestDist = float.PositiveInfinity;
