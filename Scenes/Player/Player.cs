@@ -8,9 +8,9 @@ public class Player : KinematicBody2D
     private float shootTimer = 0.0f;
     private float burstTimer = 0.0f;
     private int burstRounds = 0;
-    private const float ShootInterval = 2.0f; // time between rounds in seconds
-    private const float BurstInterval = 0.25f; // time between individual shots
-    private const int BurstMax = 4; // shots per round
+    private const float ShootInterval = 0.5f; // time between rounds in seconds
+    private const float BurstInterval = 0.1f; // time between individual shots
+    private const int BurstMax = 2; // shots per round
 
     public override void _Ready()
     {

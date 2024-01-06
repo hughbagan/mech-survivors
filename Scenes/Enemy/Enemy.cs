@@ -4,7 +4,7 @@ using System;
 public class Enemy : KinematicBody2D
 {
     private const float Speed = 50.0f;
-    private const int MaxHealth = 4;
+    private const int MaxHealth = 2;
     private int currentHealth = MaxHealth;
     private Player player;
 
