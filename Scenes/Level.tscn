@@ -26,19 +26,4 @@ position = Vector2( 267, -143 )
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 71, 210 )
 
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 411, 221 )
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 392, -221 )
-
-[node name="Enemy8" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( -378, -238 )
-
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 126, -242 )
-
-[node name="Enemy10" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 435, 108 )
-
 [node name="SpawnTimer" type="Timer" parent="."]
