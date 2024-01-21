@@ -27,3 +27,13 @@ position = Vector2( 267, -143 )
 position = Vector2( 71, 210 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -46.5
+margin_right = 46.5
+margin_bottom = 42.0
+text = "0"
+align = 1
+valign = 1

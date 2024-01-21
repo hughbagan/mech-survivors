@@ -19,6 +19,7 @@ public class Player : KinematicBody2D
 
     public override void _Process(float delta)
     {
+        // Move
         velocity = new Vector2();
         if (Input.IsActionPressed("ui_right"))
             velocity.x += 1;
@@ -31,6 +32,7 @@ public class Player : KinematicBody2D
         velocity = velocity.Normalized() * 200;
         MoveAndSlide(velocity);
 
+        // Shoot
         shootTimer += delta;
         burstTimer += delta;
         if (shootTimer >= ShootInterval && burstRounds == 0)

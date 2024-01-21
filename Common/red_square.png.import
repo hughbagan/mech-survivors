@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cyan_square.png-8d742755a5e4de020f8b94efd27ba832.stex"
+path="res://.import/red_square.png-3be8b59a0d90b8ce186d51c495a3a49c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Player/cyan_square.png"
-dest_files=[ "res://.import/cyan_square.png-8d742755a5e4de020f8b94efd27ba832.stex" ]
+source_file="res://Common/red_square.png"
+dest_files=[ "res://.import/red_square.png-3be8b59a0d90b8ce186d51c495a3a49c.stex" ]
 
 [params]
 

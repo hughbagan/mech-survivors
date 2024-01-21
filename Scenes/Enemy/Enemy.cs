@@ -3,12 +3,17 @@ using System;
 
 public class Enemy : KinematicBody2D
 {
+    private PackedScene expScene;
     private const float Speed = 50.0f;
     private const int MaxHealth = 2;
     private int currentHealth = MaxHealth;
     private Player player;
 
-    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        expScene = GD.Load<PackedScene>("res://Scenes/Exp/Exp.tscn");
+    }
+
     public override void _Process(float delta)
     {
         if (player == null)
@@ -24,6 +29,11 @@ public class Enemy : KinematicBody2D
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
+        {
+            Exp expInstance = (Exp) expScene.Instance();
+            GetNode<Node2D>("/root/Level").AddChild(expInstance);
+            expInstance.GlobalPosition = GlobalPosition;
             QueueFree();
+        }
     }
 }

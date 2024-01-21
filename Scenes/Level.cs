@@ -5,6 +5,7 @@ using System.Drawing;
 public class Level : Node2D
 {
     private PackedScene enemyScene;
+    private Globals globals;
     private Timer spawnTimer;
     private int width;
     private int height;
@@ -12,6 +13,8 @@ public class Level : Node2D
     public override void _Ready()
     {
         GD.Randomize();
+        globals = GetNode<Globals>("/root/Globals");
+        globals.AddScore(0);
         enemyScene = GD.Load<PackedScene>("res://Scenes/Enemy/Enemy.tscn");
         spawnTimer = GetNode<Timer>("SpawnTimer");
         spawnTimer.Connect("timeout", this, "_on_SpawnTimer_timeout");
