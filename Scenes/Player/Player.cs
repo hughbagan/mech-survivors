@@ -52,7 +52,7 @@ public class Player : KinematicBody2D
             foreach (Enemy enemy in GetNode<YSort>("/root/Level/Enemies").GetChildren())
             {
                 float dist = GlobalPosition.DistanceTo(enemy.GlobalPosition);
-                if (dist < nearestDist)
+                if (dist < nearestDist && enemy.onScreen)
                 {
                     nearestDist = dist;
                     nearestEnemy = enemy;

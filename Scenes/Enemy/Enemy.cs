@@ -9,6 +9,8 @@ public class Enemy : KinematicBody2D
     private int currentHealth = MaxHealth;
     private Player player;
 
+    public bool onScreen = false;
+
     public override void _Ready()
     {
         expScene = GD.Load<PackedScene>("res://Scenes/Exp/Exp.tscn");
@@ -35,5 +37,15 @@ public class Enemy : KinematicBody2D
             expInstance.GlobalPosition = GlobalPosition;
             QueueFree();
         }
+    }
+
+    public void _on_VisibilityNotifier2D_screen_entered()
+    {
+        onScreen = true;
+    }
+
+    public void _on_VisibilityNotifier2D_screen_exited()
+    {
+        onScreen = false;
     }
 }
