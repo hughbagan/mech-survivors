@@ -4,7 +4,7 @@ using System;
 public class Bullet : KinematicBody2D
 {
     private const float Speed = 1000.0f;
-    private const int Damage = 1;
+    public int damage;
 
     public override void _Ready()
     {
@@ -22,7 +22,7 @@ public class Bullet : KinematicBody2D
             if (collision.Collider is Enemy)
             {
                 Enemy enemy = (Enemy) collision.Collider;
-                enemy.TakeDamage(Damage);
+                enemy.TakeDamage(damage);
                 QueueFree();
             }
         }

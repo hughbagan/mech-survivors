@@ -8,9 +8,13 @@ public class Player : KinematicBody2D
     private float shootTimer = 0.0f;
     private float burstTimer = 0.0f;
     private int burstRounds = 0;
-    private const float ShootInterval = 0.5f; // time between rounds in seconds
-    private const float BurstInterval = 0.1f; // time between individual shots
-    private const int BurstMax = 2; // shots per round
+
+    public int movespeed = 100;
+    public float shootInterval = 0.5f; // time between rounds in seconds
+    public float burstInterval = 0.1f; // time between individual shots
+    public int burstMax = 2; // shots per round
+    public int damage = 1; // passed to bullet
+    public int hp = 10;
 
     public override void _Ready()
     {
@@ -29,17 +33,17 @@ public class Player : KinematicBody2D
             velocity.y += 1;
         if (Input.IsActionPressed("ui_up"))
             velocity.y -= 1;
-        velocity = velocity.Normalized() * 200;
+        velocity = velocity.Normalized() * movespeed;
         MoveAndSlide(velocity);
 
         // Shoot
         shootTimer += delta;
         burstTimer += delta;
-        if (shootTimer >= ShootInterval && burstRounds == 0)
-            burstRounds = BurstMax;
-        else if (shootTimer >= ShootInterval
+        if (shootTimer >= shootInterval && burstRounds == 0)
+            burstRounds = burstMax;
+        else if (shootTimer >= shootInterval
                 && burstRounds > 0
-                && burstTimer >= BurstInterval)
+                && burstTimer >= burstInterval)
         {
             // LookAt the nearest enemy
             float nearestDist = float.PositiveInfinity;
@@ -60,6 +64,7 @@ public class Player : KinematicBody2D
                 Bullet bulletInstance = (Bullet) bulletScene.Instance();
                 bulletInstance.Position = Position;
                 bulletInstance.Rotation = Rotation;
+                bulletInstance.damage = damage;
                 GetParent().AddChild(bulletInstance);
                 burstTimer = 0.0f;
                 burstRounds--;
